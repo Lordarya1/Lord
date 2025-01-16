@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    height: 200vh;
+    /* برای اسکرول */
+    background: linear-gradient(to bottom, #000428, #004e92);
+    overflow-x: hidden;
+}
+
+.scene {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* فاصله بین شاتل و مکعب */
+    align-items: center;
+    perspective: 1000px;
+}
+
+.shuttle {
+    position: relative;
+    width: 40px;
+    /* اندازه شاتل */
+    height: 100px;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
+    margin-left: 20px;
+}
+
+.body {
+    width: 40px;
+    height: 100px;
+    background: silver;
+    border-radius: 15px;
+    position: absolute;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.wing {
+    width: 15px;
+    height: 30px;
+    background: gray;
+    position: absolute;
+    top: 70px;
+}
+
+.left-wing {
+    transform: rotateZ(-45deg);
+    left: -15px;
+}
+
+.right-wing {
+    transform: rotateZ(45deg);
+    right: -15px;
+}
+
+.flame {
+    position: absolute;
+    bottom: -10px;
+    left: 15px;
+    width: 10px;
+    height: 30px;
+    background: linear-gradient(to bottom, orange, red);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.6);
+    animation: flame-flicker 0.2s infinite;
+}
+
+.cube {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    transform-style: preserve-3d;
+    transform: rotateX(0deg) rotateY(0deg);
+    transition: transform 0.1s ease-out;
+}
+
+.face {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.front {
+    transform: translateZ(50px);
+}
+
+.back {
+    transform: rotateY(180deg) translateZ(50px);
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(50px);
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(50px);
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(50px);
+}
+
+.bottom {
+    transform: rotateX(-90deg) translateZ(50px);
+}
+
+
+/* استایل دست درون مکعب */
+
+.hand {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: url('hand.png') no-repeat center center;
+    /* اضافه کردن تصویر دست */
+    background-size: cover;
+    transform: translateZ(25px);
+    /* دست در مرکز مکعب قرار می‌گیرد */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
